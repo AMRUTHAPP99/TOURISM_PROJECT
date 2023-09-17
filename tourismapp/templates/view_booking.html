@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-12" style="font-size:15px">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4" style="font-size:20px">View Bookings</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col"> Name</th>
+                                            <th scope="col">Destination Name</th>
+                                            <th scope="col">Joining place</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Departure Date</th>
+                                            <th scope="col">Mobile Number</th>
+                                            <th scope="col">Members</th>
+                                            <th scope="col">Package</th>
+
+
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                    {% for i in data %}
+                                        <tr>
+                                          <td>{{i.name}}</td>
+                                            <td>{{i.destination_place}}</td>
+                                            <td>{{i.joining_place}}</td>
+                                            <td>{{i.departure_date}}</td>
+                                            <td>{{i.email}}</td>
+
+                                          <td>{{i.mobile}}</td>
+                                          <td>{{i.members}}</td>
+                                          <td>{{i.package}}</td>
+
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}
+
+</body>
+</html>
+
+</body>
+</html>

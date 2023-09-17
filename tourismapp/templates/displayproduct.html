@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-12" style="font-size:15px">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4" style="font-size:20px">DISPLAY PAGE</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">category Name</th>
+                                            <th scope="col"> Name</th>
+                                            <th scope="col">price</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col"> image</th>
+
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                    {% for i in product %}
+                                        <tr>
+                                          <td>{{i.cn}}</td>
+                                          <td>{{i.pn}}</td>
+                                          <td>{{i.pr}}</td>
+<!--                                          <td>{{i.ds}}</td>-->
+                                          <td>
+                                            <img src="{{i.pi.url}}" width="80px" height="80px">
+
+                                             <form action="{% url 'editaddproduct_fn' productid=i.id  %}">
+                                            <td>
+                                           <button type="submit" class="btn btn-info">edit</button>
+                                            </td>
+                                          </form>
+                                            <form action="{% url  'deleteaddproduct' productid=i.id %}">
+                                            <td>
+                                              <button type="submit" class="btn btn-danger">delete</button>
+                                            </td>
+                                          </form>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}
+
+</body>
+</html>
+
+</body>
+</html>

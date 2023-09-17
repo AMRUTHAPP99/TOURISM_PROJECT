@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-12" style="font-size:15px">
+                        <div class="">
+                            <h6 class="mb-4" style="font-size:20px">Display Feedback</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col"> Name</th>
+                                            <th scope="col">feedback</th>
+
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                    {% for i in data %}
+                                        <tr>
+                                          <td>{{i.user}}</td>
+
+                                          <td>{{i.feedback}}</td>
+
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-sm-12 col-xl-6" style="width:1010px;height:570px;background-image:linear-gradient(rgb(105, 117, 134);">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4" style="color:blue">ADD PRODUCT</h6>
+                            <form method="post" action="{% url 'save_addproductdata' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+<!--                                    <label class="form-label" style="color:black">Category name</label>-->
+                                   <div>
+
+
+
+                                <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="pcname">
+
+                                <option selected="">Open this select menu</option>
+
+                                     {% for i in category %}
+                                    <option>{{i.name}}</option>
+                                      {% endfor %}
+
+
+                            </select>
+
+
+                            </div>
+                            <div class="mb-3">
+                                    <label class="form-label" style="color:black">product name</label>
+                                    <input type="text" class="form-control" name="pr_name" style="width:950px;" >
+
+                                    </div>
+                                 <div class="mb-3">
+                                    <label class="form-label" style="color:black">price</label>
+                                    <input type="text" class="form-control" name="pr_price" style="width:950px;" >
+
+                                    </div>
+                                <div class="mb-3">
+                                    <label class="form-label" style="color:black">Description</label><br>
+                                    <textarea cols=50 name="description" class="form-control"></textarea>
+
+                                    </div><br>
+                                     <div class="mb-3">
+                                   <label class="form-label" style="color:black">product image</label><br>
+                                    <input type="file" name="p_image">
+                                </div>
+
+
+
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </form>
+                        </div>
+                    </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        {% if messages %}
+             {% for i in messages %}
+                  {% if i.tags == 'warning' %}
+                        <script>
+                            swal('{{i}}','','warning');
+                        </script>
+                        {% elif i.tags == 'error' %}
+                         <script>
+                             swal('{{i}}','','error');
+                         </script>
+                        {% else %}
+                          <script>
+                             swal('{{i}}','','success');
+                         </script>
+                  {% endif %}
+
+             {% endfor %}
+        {% endif %}
+
+
+
+</body>
+</html>
+{% endblock %}
+

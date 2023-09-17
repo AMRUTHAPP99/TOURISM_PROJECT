@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{% url 'updatetourism'  dataid=data.id  %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<div class=""  style="width:1000px;background-color:lightblue;">
+                        <div class=" rounded h-100 p-4">
+                            <h6 class="mb-4">Edit Tourism</h6>
+                            <label>Customer name</label><br>
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" id="" placeholder="" name="c_name" value="{{data.cname}}">
+
+                            </div>
+                          <label>Customer Image</label><br>
+                           <div>
+                                <img src="{{data.cimage.url}}" width="100px" height="100px">
+
+
+                               <input type="file" name="image" >
+                           </div><br>
+                            <label >Members</label><br>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 150px;" name="member" value="{{data.members}}"></textarea>
+
+                            </div><br>
+                             <label>Address</label><br>
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control"  placeholder="" name="addresses" value="{{data.address}}">
+
+                            </div>
+                             <label>Mobile Number</label><br>
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" placeholder="" name="mobile" value="{{data.mobileno}}">
+
+                            </div>
+                             <label>Location</label><br>
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" id="floatingInput" placeholder="" name="loctn" value="{{data.location}}">
+
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </div>
+                        </div>
+                    </div>
+</form>
+</body>
+
+</html>
+{% endblock %}

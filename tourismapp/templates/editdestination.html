@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{% url 'updatedestination' dataid=data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<div class=""  style="width:1000px;background-color:lightblue;">
+                        <div class=" rounded h-100 p-4">
+                            <h6 class="mb-4"></h6>
+                            <label>Destination name</label><br>
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" id="" placeholder="" name="dname"  value="{{data.name}}">
+
+                            </div>
+                          <label>Destination Image</label><br>
+                           <div>
+
+                                <img src="{{data.img.url}}" width="100px" height="100px">
+
+
+
+                               <input type="file" name="images">
+                           </div><br>
+                            <label >Description</label><br>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 150px;" name="des">{{data.descrip}}</textarea>
+
+                            </div><br>
+                             <label>Location</label><br>
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" id="floatingInput" placeholder="" name="loct" value="{{data.lo}}">
+
+                            </div>
+                             <label>price</label><br>
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" id="" placeholder="" name="price" value="{{data.price}}">
+
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+</form>
+</body>
+
+</html>
+{% endblock %}

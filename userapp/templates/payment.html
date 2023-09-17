@@ -1,0 +1,315 @@
+
+<html>
+<head>
+
+    <body>
+
+
+<div class="container" style="background-color:white">
+
+ <form method="post" action="{% url 'save_Checkout' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">billing address</h3>
+
+                <div class="inputBox">
+                    <span>full name :</span>
+                    <input type="text" placeholder="" name="Name" required>
+                </div>
+                <div class="inputBox">
+                    <span>email :</span>
+                    <input type="email" placeholder="example@example.com" name="Bemail" required>
+                </div>
+                <div class="inputBox">
+                    <span>address :</span>
+                    <input type="text" placeholder="room - street - locality" name="Add" required>
+                </div>
+                <div class="inputBox">
+                    <span>city :</span>
+                    <input type="text" placeholder="kerala" name="city" required>
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>state :</span>
+                        <input type="text" placeholder="india" name="State" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>pincode code :</span>
+                        <input type="text" placeholder="123 456" name="Pin" pattern="[1-9]{6}" required>
+                    </div>
+                </div>
+<!-- <div class="inputBox">-->
+<!--                    <span>Course : {{data.Batch}}</span>-->
+
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">payment</h3>
+
+                <div class="inputBox">
+                    <span>cards accepted :</span>
+                    <img src="https://1033ambulance.org/images/Credit_card_logo.png" alt="">
+                </div>
+                <div class="inputBox">
+                    <span>name on card :</span>
+                    <input type="text" placeholder="" name="Cname" required>
+                </div>
+                <div class="inputBox">
+                    <span>credit card number :</span>
+                    <input type="text" placeholder="1111-2222-3333-4444" name="Cnum" >
+                </div>
+                <div class="inputBox">
+                    <span>exp month :</span>
+                    <input type="text" placeholder="january" name="Expm" required>
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>exp year :</span>
+                        <input type="text" placeholder="2022" name="Expyear" pattern="[2-9]{1}[0-9]{3}" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        <input type="text" placeholder="1234" name="Cvv" pattern="[0-9]{4}" required>
+                    </div>
+                </div>
+<div class="inputBox">
+                    <span>Total Amount :{{data.Cfees}}</span>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <input type="submit" value="proceed to checkout" class="submit-btn">
+
+    </form>
+
+</div>
+
+
+<style>
+  *{
+  font-family: 'Poppins', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:25px;
+  min-height: 100vh;
+  background: black;
+}
+
+.container form{
+  padding:20px;
+  width:700px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+.container form .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+}
+
+.container form .row .col{
+  flex:1 1 250px;
+}
+
+.container form .row .col .title{
+  font-size: 20px;
+  color:#333;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.container form .row .col .inputBox{
+  margin:15px 0;
+}
+
+.container form .row .col .inputBox span{
+  margin-bottom: 10px;
+  display: block;
+}
+
+.container form .row .col .inputBox input{
+  width: 100%;
+  border:1px solid #ccc;
+  padding:10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+.container form .row .col .inputBox input:focus{
+  border:1px solid #000;
+}
+
+.container form .row .col .flex{
+  display: flex;
+  gap:15px;
+}
+
+.container form .row .col .flex .inputBox{
+  margin-top: 5px;
+}
+
+.container form .row .col .inputBox img{
+  height: 34px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.container form .submit-btn{
+  width: 100%;
+  padding:12px;
+  font-size: 17px;
+  background: orange;
+  color:#fff;
+  margin-top: 80px;
+  cursor: pointer;
+}
+
+.container form .submit-btn:hover{
+  background: #2ecc71;
+  }
+</style>
+
+
+
+    <!-- Content END-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<footer style="margin-top:-200px;width:1200px;margin-left:150px ;background-color:black">-->
+<!--    <div class="container" >-->
+<!--      <div class="row" >-->
+<!--        <div class="col-md-12">-->
+<!--          <p ><i class="fa fa-copyright" ></i> Copyright 2020 by My Tutor-->
+
+<!--           | Design: <a href="https://templatemo.com" rel="sponsored" target="_parent">My Tutor website</a><br>-->
+<!--           Distributed By: <a href="https://themewagon.com" rel="sponsored" target="_blank">My Tutor</a>-->
+
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </footer>-->
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+
+    <script>
+<!--        //according to loftblog tut-->
+<!--        $('.nav li:first').addClass('active');-->
+
+<!--        var showSection = function showSection(section, isAnimate) {-->
+<!--          var-->
+<!--          direction = section.replace(/#/, ''),-->
+<!--          reqSection = $('.section').filter('[data-section="' + direction + '"]'),-->
+<!--          reqSectionPos = reqSection.offset().top - 0;-->
+
+<!--          if (isAnimate) {-->
+<!--            $('body, html').animate({-->
+<!--              scrollTop: reqSectionPos },-->
+<!--            800);-->
+<!--          } else {-->
+<!--            $('body, html').scrollTop(reqSectionPos);-->
+<!--          }-->
+
+<!--        };-->
+
+<!--        var checkSection = function checkSection() {-->
+<!--          $('.section').each(function () {-->
+<!--            var-->
+<!--            $this = $(this),-->
+<!--            topEdge = $this.offset().top - 80,-->
+<!--            bottomEdge = topEdge + $this.height(),-->
+<!--            wScroll = $(window).scrollTop();-->
+<!--            if (topEdge < wScroll && bottomEdge > wScroll) {-->
+<!--              var-->
+<!--              currentId = $this.data('section'),-->
+<!--              reqLink = $('a').filter('[href*=\\#' + currentId + ']');-->
+<!--              reqLink.closest('li').addClass('active').-->
+<!--              siblings().removeClass('active');-->
+<!--            }-->
+<!--          });-->
+<!--        };-->
+
+<!--        $('.main-menu, .scroll-to-section').on('click', 'a', function (e) {-->
+<!--          if($(e.target).hasClass('external')) {-->
+<!--            return;-->
+<!--          }-->
+<!--          e.preventDefault();-->
+<!--          $('#menu').removeClass('active');-->
+<!--          showSection($(this).attr('href'), true);-->
+<!--        });-->
+
+<!--        $(window).scroll(function () {-->
+<!--          checkSection();-->
+<!--        });-->
+    </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        {% if messages %}
+             {% for i in messages %}
+                  {% if i.tags == 'warning' %}
+                        <script>
+                            swal('{{i}}','','warning');
+                        </script>
+                        {% elif i.tags == 'error' %}
+                         <script>
+                             swal('{{i}}','','error');
+                         </script>
+                        {% else %}
+                          <script>
+                             swal('{{i}}','','success');
+                         </script>
+                  {% endif %}
+
+             {% endfor %}
+        {% endif %}
+
+</body>
+</html>

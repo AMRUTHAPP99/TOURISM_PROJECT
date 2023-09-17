@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-12" style="font-size:15px">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4" style="font-size:20px">DISPLAY PAGE</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">Destination Name</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">price</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Location</th>
+
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                    {% for i in data %}
+                                        <tr>
+                                          <td>{{i.name}}</td>
+                                          <td>
+                                            <img src="{{i.img.url}}" width="80px" height="80px">
+                                          <td>{{i.price}}</td>
+                                          <td>{{i.descrip}}</td>
+                                          <td>{{i.lo}}</td>
+                                             <form action="{% url 'editdest_fn'  dataid=i.id %}">
+                                            <td>
+                                           <button type="submit" class="btn btn-info">edit</button>
+                                            </td>
+                                          </form>
+                                            <form action="{% url 'deletedestination'  dataid=i.id %}">
+                                            <td>
+                                              <button type="submit" class="btn btn-danger">delete</button>
+                                            </td>
+                                          </form>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}
+
+</body>
+</html>
+
+</body>
+</html>
